@@ -1,62 +1,112 @@
-# Express.js RESTful API Assignment
+# 🧶 Express.js Product API – Week 2 Assignment
 
-This assignment focuses on building a RESTful API using Express.js, implementing proper routing, middleware, and error handling.
+This is a Node.js and Express.js project demonstrating routing, middleware, and error handling concepts.  
+The API manages a simple list of products for a crochet tools store.
 
-## Assignment Overview
+---
 
-You will:
-1. Set up an Express.js server
-2. Create RESTful API routes for a product resource
-3. Implement custom middleware for logging, authentication, and validation
-4. Add comprehensive error handling
-5. Develop advanced features like filtering, pagination, and search
+## 📂 Project Structure
 
-## Getting Started
+express-week2/
+├─ routes/
+│ └─ products.js
+├─ middleware/
+│ ├─ logger.js
+│ ├─ auth.js
+│ ├─ validateProduct.js
+│ └─ errorHandler.js
+├─ errors/
+│ ├─ NotFoundError.js
+│ └─ ValidationError.js
+├─ utils/
+│ └─ wrapAsync.js
+├─ swaggerConfig.js
+├─ server.js
+├─ package.json
+├─ README.md
+├─ .env.example
+└─ .gitignore
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Install dependencies:
-   ```
-   npm install
-   ```
-4. Run the server:
-   ```
-   npm start
-   ```
+yaml
+Copy code
 
-## Files Included
+---
 
-- `Week2-Assignment.md`: Detailed assignment instructions
-- `server.js`: Starter Express.js server file
-- `.env.example`: Example environment variables file
+## ⚙️ Setup Instructions
 
-## Requirements
+### 1️⃣ Prerequisites
+Make sure you have installed:
+- **Node.js** (v18 or later)
+- **npm** (comes with Node)
+- **PowerShell** or **VS Code terminal**
 
-- Node.js (v18 or higher)
-- npm or yarn
-- Postman, Insomnia, or curl for API testing
+---
 
-## API Endpoints
+### 2️⃣ Clone or create your project
+```bash
+cd Desktop
+mkdir express-js-server-side-framework-graceakhati-dev
+cd express-js-server-side-framework-graceakhati-dev
+3️⃣ Install dependencies
+bash
+Copy code
+npm install
+4️⃣ Run the server
+bash
+Copy code
+node server.js
+Server will start on:
+👉 http://localhost:3000
 
-The API will have the following endpoints:
+🧠 API Endpoints
+Method	Endpoint	Description
+GET	/products	Get all products
+GET	/products/:id	Get a product by ID
+POST	/products	Add a new product
+PUT	/products/:id	Update a product
+DELETE	/products/:id	Delete a product
 
-- `GET /api/products`: Get all products
-- `GET /api/products/:id`: Get a specific product
-- `POST /api/products`: Create a new product
-- `PUT /api/products/:id`: Update a product
-- `DELETE /api/products/:id`: Delete a product
+🧪 Testing with curl
+Run these commands in your PowerShell or terminal after the server starts:
 
-## Submission
+Get all products
+bash
+Copy code
+curl http://localhost:3000/products
+Add a new product
+bash
+Copy code
+curl -X POST http://localhost:3000/products -H "Content-Type: application/json" -d "{\"name\":\"Yarn Ball\",\"description\":\"Soft cotton yarn\",\"price\":5.0,\"category\":\"materials\",\"inStock\":true}"
+Get one product (replace ID)
+bash
+Copy code
+curl http://localhost:3000/products/<id>
+Update a product
+bash
+Copy code
+curl -X PUT http://localhost:3000/products/<id> -H "Content-Type: application/json" -d "{\"price\":6.0}"
+Delete a product
+bash
+Copy code
+curl -X DELETE http://localhost:3000/products/<id>
+🧩 Middleware Used
+logger.js – Logs every request.
 
-Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
+auth.js – Simulates authentication check.
 
-1. Complete all the required API endpoints
-2. Implement the middleware and error handling
-3. Document your API in the README.md
-4. Include examples of requests and responses
+validateProduct.js – Validates product data before saving.
 
-## Resources
+errorHandler.js – Handles all errors gracefully.
 
-- [Express.js Documentation](https://expressjs.com/)
-- [RESTful API Design Best Practices](https://restfulapi.net/)
-- [HTTP Status Codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) 
+🧰 Utilities
+wrapAsync.js – Simplifies async error handling.
+
+NotFoundError.js & ValidationError.js – Custom error classes.
+
+👩🏽‍💻 Author
+Grace Akhati
+Power Learn Project – Week 2: Server-Side Frameworks (Express.js)
+📧 graceakhati2@gmail.com
+
+🏁 License
+This project is for educational purposes only under the Power Learn Project July 2025 cohort.
